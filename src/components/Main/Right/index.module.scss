@@ -1,0 +1,85 @@
+.editorRight {
+  position: absolute;
+  height: 100%;
+  padding:0px 16px;
+  overflow: auto;
+  width: 16vw;
+  min-width: 200px;
+  right: 0px;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  border-left: 1px solid #d9dcf4;
+  box-shadow: -1px 8px 30px 1px rgba(112, 112, 242, 0.2);
+
+  &::-webkit-scrollbar-track{
+    background-color: #ffffff;
+  }
+
+  &::-webkit-scrollbar{
+    width:3px;
+  }
+  &::-webkit-scrollbar-thumb{
+    background-color: #000CF5;
+  }
+
+  .setterItemLabel{
+    display:inline;
+    margin-bottom:10px;
+
+
+
+    .styleName{
+      color:#4c57cb;
+      font-size: 14px;
+    
+    }
+    .setterItem{
+      border: 1.5px solid #BFC3F2;
+      border-radius: 8px;
+      width:100%;
+      height:28px;
+      margin-top:2px;
+      margin-bottom:10px;
+      padding:4px;
+      font-size: 14px;
+
+      &:hover{
+        border: 2px solid #000CF5;
+      }
+      &::placeholder{
+        color:#BFC3F2;
+
+      }
+    }
+
+  }
+  .info{
+    // text-align: center;
+    span{
+        display: inline-block;
+        // width: 80px;
+        text-align: right;
+        margin-left: 20px;
+        margin-right: 10px;
+        padding-top: 10px;
+    }
+}
+
+  .event{
+    // text-align: center;
+    margin: 0 10px;
+    .tabText{
+        width: 90%;
+        height: 100px;
+        border: 1px solid skyblue;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 5px auto;
+    }
+}
+
+  
+}
+
+
+

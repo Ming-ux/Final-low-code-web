@@ -1,0 +1,338 @@
+body {
+	position: relative;
+	overflow: auto;
+	color: #555;
+	font-size: 15px;
+	line-height: 1.7;
+	background-color: #f7fafc;
+	text-align: center;
+	font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+}
+
+#particles-js {
+	position: absolute;
+	overflow: auto;
+	height: 90%;
+	top: 60px;
+	left: 0;
+	bottom: 0;
+}
+
+.logo_add {
+	height: 60px;
+	/* border-bottom: #C0C0C0 2px solid; */
+	background: rgba(255, 255, 255, .7);
+	backdrop-filter: blur(10px);
+	position: sticky;
+	top: 0;
+	overflow: auto;
+	box-shadow: 0px 1px 20px 1px rgba(112, 112, 242, 0.2);
+}
+
+.logo_add img {
+	height: 50px;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+
+
+
+.logo_add .add {
+	position: absolute;
+	right: 120px;
+	top: 0px;
+	width: 80px;
+	border: 0;
+	line-height: 40px;
+	font-size: 15px;
+	margin: 10px 0;
+	color: #fff;
+	background-color: #4063f0;
+	border-radius: 8px;
+}
+
+.logo_add .add:hover {
+	background-color: gray;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.logo_add .back {
+	position: absolute;
+	right: 20px;
+	top: 0px;
+	width: 80px;
+	border: 0;
+	line-height: 40px;
+	font-size: 15px;
+	margin: 10px 0;
+	color: #fff;
+	background-color: #f9924d;
+	border-radius: 8px;
+}
+
+.logo_add .back:hover {
+	background-color: gray;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.table {
+	position: absolute;
+	overflow: auto;
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+
+.table .item {
+	border: solid 1.5px rgb(255, 255, 255);
+	border-radius: 5px;
+	display: inline-block;
+	margin: 50px;
+	backdrop-filter: blur(2px);
+	background: rgba(255, 255, 255, 0.3);
+	height: 200px;
+	width: 300px;
+	box-shadow: 0px 8px 16px 0px rgba(56, 45, 208, 0.2);
+	
+
+}
+.item:hover{
+	border: solid 1.5px #000CF5;
+}
+
+.table .item .project {
+	height: 200px;
+	overflow: auto;
+}
+
+.title {
+	display: block;
+	background-color: rgb(255, 255, 255,0.3);
+	line-height: 170px;
+	font-size: 30px;
+
+}
+
+
+
+.editbtn {
+	position: absolute;
+	width: 20%;
+	bottom: 16px;
+	left: 10%;
+	font-size: 14px;
+	border-radius: 5px;
+	border: solid 0px black;
+	background-color: #74dc96;
+	color: white;
+	line-height: 25px;
+
+
+}
+
+.editbtn:hover {
+	background-color: gray;
+	color: white;
+	transition: 0.3s;
+	cursor: pointer;
+
+}
+
+.renamebtn {
+	position: absolute;
+	width: 20%;
+	bottom: 16px;
+	left: 40%;
+	font-size: 14px;
+	border-radius: 5px;
+	border: solid 0px black;
+	background-color: #4063f0;
+	color: white;
+	line-height: 25px;
+
+}
+
+.renamebtn:hover {
+	background-color: gray;
+	color: white;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.deletebtn {
+	padding:4px 4px;
+	position: absolute;
+	width: 20%;
+	bottom: 16px;
+	right: 10%;
+	font-size: 14px;
+	border-radius: 5px;
+	border: solid 0px black;
+	background-color: #f9924d;
+	color: white;
+	/* line-height: 25px; */
+
+}
+
+.deletebtn:hover {
+	background-color: gray;
+	color: white;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+/* 遮罩层 */
+div.bg {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	background: rgb(244, 244, 250);
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+}
+
+.header {
+	height: 30px;
+	margin: 5px;
+}
+
+p {
+	margin: 10px;
+	text-align: center;
+	font: normal 500 20px '宋体';
+	color:#5056cc;
+}
+
+/* 超时弹框 */
+div.timeout {
+	position: relative;
+	background: #fff;
+	width: 20%;
+	height: 12%;
+	border-radius: 10px;
+	margin: 10% auto;
+	border-color: #000;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* 错误弹框 */
+div.networkerror {
+	position: relative;
+	background: #fff;
+	width: 20%;
+	height: 12%;
+	border-radius: 10px;
+	margin: 10% auto;
+	border: solid 1px black;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* 关闭窗口按钮 */
+div.close {
+	text-align: center;
+	padding: 1px;
+	margin: 1px;
+	background-color: red;
+	color: white;
+	height: 20px;
+	width: 20px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+div.close:hover {
+	background-color: rgb(151, 6, 6);
+	color: #fff;
+	cursor: pointer;
+}
+
+/* 创建项目框 */
+div.create {
+	position: relative;
+	background: #fff;
+	width: 600px;
+	height: 240px;
+	border-radius: 10px;
+	margin: 10% auto;
+	border-color: #000;
+	box-shadow: 0px 4px 30px 5px rgba(31, 33, 94, 0.1);
+}
+
+/* 重命名框 */
+div.rename {
+	position: relative;
+	background: #fff;
+	width: 40%;
+	height: 30%;
+	border-radius: 10px;
+	margin: 10% auto;
+	border-width: 0px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* 确认删除框 */
+div.dele {
+	position: relative;
+	background: #fff;
+	width: 40%;
+	height: 18%;
+	border-radius: 10px;
+	margin: 10% auto;
+	border-width: 0px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* 项目名称是空的时候的提示 */
+div.empty {
+	text-align: inherit;
+	color: red;
+	font: normal 100 20px '宋体';
+}
+
+/* 输入框输入新项目名字 */
+.textinput {
+	background-color: whitesmoke;
+	position: relative;
+	width: 50%;
+	height: 30px;
+	margin-bottom: none;
+	border: 1.5px solid #8286d5;
+	border-radius: 6px;
+	transition: 0.5s;
+	font: large 500 20px '宋体';
+}
+
+.textinput:hover {
+	background-color: aliceblue;
+}
+
+.textinput:focus {
+	border-color: black;
+}
+
+/* 两个按钮 确认创建和返回 */
+.btn {
+	line-height: 25px;
+	background-color: #000CF5;
+	width: 30%;
+	height: 48px;
+	border-radius: 8px;
+	margin-top: 20px;
+	box-sizing: border-box;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	color: white;
+	border: 0px black solid;
+}
+
+.btn:hover {
+	background-color: black;
+	color: white;
+	cursor: pointer;
+}

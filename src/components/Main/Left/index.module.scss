@@ -1,0 +1,101 @@
+
+.editorLeft {
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+  width: 14vw;
+  min-width: 200px;
+  left: 0;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid #d9dcf4;
+  box-shadow: 1px 8px 20px 1px rgba(112, 112, 242, 0.2);
+
+  &::-webkit-scrollbar-track{
+    background-color: #ffffff;
+  }
+
+  &::-webkit-scrollbar{
+    width:3px;
+  }
+  &::-webkit-scrollbar-thumb{
+    background-color: #000CF5;
+  }
+
+  .editorLeftLayout, .editorLeftText, .editorLeftMultimedia{
+    margin-bottom: 2px;
+      details{
+        border:1px solid #dee0fe;
+          summary{
+            color:#000CF5;
+            direction: ltr;
+            padding:2px 8px;
+            height:28px;
+            background-color: #eff2ff;
+
+            &::marker{
+              font-size:12px;
+              direction:ltr;
+              color:#000CF5;
+            }
+          }
+      }
+
+    }
+  
+  .editorLeftItem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 42px;
+    border: 1.5px solid #BFC3F2;
+    border-radius: 8px;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    color: #000CF5;
+    font-family: Geneva;
+    font-size: 14px;
+    cursor: grab;
+    padding:8px 12px 8px 12px;
+
+    .icon{
+      width:28px; 
+      height:28px;
+      fill:#BFC3F2;
+
+    }
+
+    &:hover {
+      display: flex;
+      flex-wrap: nowrap;
+      height: 42px;
+      border: 2px solid #000CF5;
+      border-radius: 8px;
+      text-align: center;
+      align-items: center;
+      background-color: rgb(255, 255, 255);
+      font-family: Geneva;
+      cursor: grab;
+      box-shadow: 0px 0px 10px 4px rgba(36, 24, 213, 0.1);
+
+    }
+
+
+    .list {
+      width: 45%;
+     height: 40px;
+      border: 1px solid #ddd;
+      // cursor: -webkit-grab;
+      // cursor: grab;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #333;
+      padding: 2px 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

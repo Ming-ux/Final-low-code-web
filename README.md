@@ -5,7 +5,7 @@
 
 # 项目介绍
 基于React实现的低代码平台，拥有设计、预览、发布等功能。  
-项目部署在fly.io平台，项目地址：https://lowcode.fly.dev/
+项目部署在fly.io平台，项目地址：https://lowcode.fly.dev/  
 迭代的版本还未正式部署，只先更新github，因此上述地址是仍然结营后的版本。  
 
 # 技术选型

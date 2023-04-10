@@ -106,7 +106,8 @@
                     mobile_ = login.mobile.value;
                     psd_ = login.psd.value;
                     const xhr = new XMLHttpRequest();
-                    xhr.open('POST', 'https://lowcode.fly.dev/api/login');
+                    // xhr.open('POST', 'https://lowcode.fly.dev/api/login');
+                    xhr.open('POST', '/api/login');
                     xhr.setRequestHeader('Content-Type', 'application/json');
                     xhr.send(
                         JSON.stringify({

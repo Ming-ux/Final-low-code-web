@@ -1,3 +1,5 @@
+import { createElement } from "react"
+
 //此文件为画布渲染的依据，同文件夹下的另外三个类型component是负责左侧组件布局，不涉及画布渲染和右侧属性栏。
 
 export default [
@@ -5,6 +7,7 @@ export default [
         type: 'p',
         props: {
             name: '<p>',
+            className:'',
             style: {
                 position: 'relative',
                 width: '',
@@ -22,9 +25,7 @@ export default [
                 top: '',
                 bottom: '',
                 opacity: '',
-
-
-            },
+            }
         },
         children: [
             '文本',
@@ -34,6 +35,7 @@ export default [
         type: 'span',
         props: {
             name: '<span>',
+            className:'',
             style: {
                 position: 'relative',
                 width: '',
@@ -50,8 +52,7 @@ export default [
                 top: '',
                 bottom: '',
                 opacity: '',
-
-            },
+            }
         },
         children: [
             '文本',
@@ -61,15 +62,16 @@ export default [
         type: 'button',
         props: {
             name: '<button>',
+            className:'',
             style: {
                 position: 'relative',
                 cursor: 'pointer',
-                color: '#ffffff',
+                color: '#FFFFFF',
                 width: '100px',
                 height: '30px',
                 borderWidth: '0px',
                 borderStyle: 'solid',
-                backgroundColor: '#000000',
+                backgroundColor: '#2c82f2',
                 borderColor: '#000000',
                 borderRadius: '6px',
                 fontWeight: 'bold',
@@ -81,10 +83,17 @@ export default [
                 bottom: '',
                 opacity: '',
                 fontSize:'12px',
-                color:'#000000'
             },
-            onClick: `(e) => {alert('button clicked')}`,
-            onDoubleClick: `(e) => {alert('button double clicked')}`
+            eventlist:{
+                '弹窗事件':'alert("你好");\n',
+                '打印事件':'console.log("你好");\n',
+                '获取其他组件':'const item = document.getElementsByClassName("")[0];\n',
+                '获取组件后弹窗':'alert(item.value);\n',
+            },
+            addedlist:{
+                
+            },
+            onClick: `(e) => {}`,
         },
         children: [
             '预览按钮',
@@ -94,6 +103,7 @@ export default [
         type: 'input',
         props: {
             name: '<input>',
+            className:'',
             defaultValue: '请输入文本',
             type: 'text',
             style: {
@@ -112,7 +122,13 @@ export default [
                 opacity: '',
 
             },
-            onChange: `(e) => {console.log(e)}`
+            eventlist:{
+                '弹窗事件':'alert("失去焦点");\n',
+                '打印事件':'console.log("失去焦点");\n',
+            },
+            addedlist:{
+            },
+            onBlur: `(e) => {}`
         },
         children: [
 
@@ -123,6 +139,7 @@ export default [
 
         props: {
             name: '<textarea>',
+            className:'',
             defaultValue: '请输入段落',
             style: {
                 position: 'relative',
@@ -140,6 +157,10 @@ export default [
                 opacity: '',
 
             },
+            eventlist:{
+            },
+            addedlist:{
+            },
             onChange: `(e) => {console.log(e)}`
         },
         children: [
@@ -152,6 +173,7 @@ export default [
 
         props: {
             name: '<div>',
+            className:'',
             style: {
                 boxSizing: 'border-box',
                 margin: '0px',
@@ -161,7 +183,7 @@ export default [
                 right: '',
                 top: '',
                 bottom: '',
-                width: '',
+                width: '100%',
                 height: '',
                 display: 'flex',
                 flexDirection: 'column',
@@ -180,8 +202,6 @@ export default [
                 borderWidth:'',
                 borderColor:'',
                 borderRadius:'',
-
-
             }
         },
         children: [
@@ -193,6 +213,7 @@ export default [
 
         props: {
             name: '<h>',
+            className:'',
             style: {
                 position: 'relative',
                 color: 'black',
@@ -217,6 +238,7 @@ export default [
         type: 'a',
         props: {
             name: '<a>',
+            className:'',
             label: '链接',
             href: 'https://www.bilibili.com/',
             style: {
@@ -233,6 +255,7 @@ export default [
                 bottom: '',
                 opacity: '',
             }
+
         },
         children: [
             '链接',
@@ -243,6 +266,7 @@ export default [
         type: 'img',
         props: {
             name: '<img>',
+            className:'',
             label: '图片',
             alt: '',
             src: 'https://images.pexels.com/photos/9287901/pexels-photo-9287901.jpeg',
@@ -266,9 +290,9 @@ export default [
 
     {
         type: 'video',
-
         props: {
             name: '<video>',
+            className:'',
             label: '视频',
             controls: 'controls',
             src: 'https://pic.oh4k.com/spdiy/wp-content/uploads/2022/08/20220809-mGFGRn.mp4',
@@ -283,13 +307,42 @@ export default [
                 bottom: '',
                 opacity: '',
             }
-
         },
         children: [
         ]
+    },
+    {
+        type:'title',
+        props:{
+            style:{},
+            className:'',
+            title: '我是标题',
+            content:'文段文段文段'
+        },
+        children:[]
+    },
+    {
+        type:'submitCard',
+        props:{
+            style:{},
+            className:'',
+            placeholder: '输入要提交的信息',
+            buttoncontent:'提交'
+        },
+        children:[]
+    },
+    {
+        type:'layoutSingle',
+        props:{
+            style:{},
+            className:'',
+            type:'cus',
+            content:'我是单列布局',
+        },
+        children:[]
     },
 
 
 ]
 
-//其实可以自己创建react组件，不一定是原生标签
+

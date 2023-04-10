@@ -1,7 +1,30 @@
 // 根据pageInfo渲染组件
 import React from "react";
 import componentList from '../schema/components'
+import {Title,SubmitCard,LayoutSingle} from '../schema/customComponents'
 import { deepCopy } from "../utilts/clone";
+
+//组件映射表
+const componentmap = {
+    title:Title,
+    submitCard:SubmitCard,
+    layoutSingle:LayoutSingle
+
+}
+
+//判断映射表中是否存在自定义组件名称
+function isMap(type){
+    if(componentmap[type]){
+        return true
+    }else{
+        return false
+    }
+}
+
+//输入自定义组件名称，输出自定义函数组件
+function componentMap (type){
+    return componentmap[type]
+}
 
 
 // 将字符串转换为函数？
@@ -33,6 +56,13 @@ function Component(props) {
             newProps[key] = props.props[key]
         }
     }
+
+    //渲染自定义组件
+    if(isMap(props.type)){
+        let customCom = componentMap(props.type)
+        return React.createElement(customCom,props.props)
+    }
+    //
 
     if (props.children.length > 0) {
         const children = props.children.map((child, index) => {
@@ -209,7 +239,7 @@ function PreviewComponent({ selectComponent, setSelectComponent, pageInfo, setPa
             // dragID不存在，新建组件
 
             let newPageInfo = pageInfo
-            newPageInfo.maxID += 1
+            newPageInfo.maxID += 1//在此处维护maxID
             let component
 
             for (let index in componentList) {
@@ -218,7 +248,8 @@ function PreviewComponent({ selectComponent, setSelectComponent, pageInfo, setPa
                     // 需要深拷贝新建component
                     // component = componentList[index]
                     component = deepCopy(componentList[index])
-                    component.props.id = newPageInfo.maxID
+                    component.props.id = newPageInfo.maxID//为每一个拖拽的组件新增一个id
+
                     break
                 }
             }
@@ -226,9 +257,16 @@ function PreviewComponent({ selectComponent, setSelectComponent, pageInfo, setPa
 
             if (dropType === 'div') {
                 // 如果目标容器可嵌套(div)，则向children push
+                console.log('div-dropType:',dropType,dropID)
                 newPageInfo.page = addToChildren(component, dropID, newPageInfo.page)//包括根组件跟小组件
 
-            } else {
+            } 
+            // else if(dropType === 'div' && dropID !== 1){//失效，试图push组件到自定义的布局组件中,但是无法分清原有的div和自定义组件的外层div
+            //     console.log('dropType:',dropType,dropID)
+            //     newPageInfo.page = addToChildren(component, -dropID, newPageInfo.page)
+
+            // }
+            else {
                 // 寻找父节点，向其孩子插入
                 // 如果目标不可嵌套，则根据y轴坐标判断在上面还是下面添加，并没有实现，而是放在了根组件的children处
                 let parentID = findParentID(dropID, newPageInfo.page)
@@ -249,16 +287,25 @@ function PreviewComponent({ selectComponent, setSelectComponent, pageInfo, setPa
         return { props }
     }
 
+
+
+
+
     // 递归渲染子组件
     let children = []
+    //递归渲染子组件
     if (props.children.length > 0) {
-        children = props.children.map((child, index) => {
-            return typeof child === 'string' ? child
-                : <div className="canvas-field" key={index} id={child.props.id} style={child.props.style}>
-                    <PreviewComponent  {...child} pageInfo={pageInfo} setPageInfo={setPageInfo} selectComponent={selectComponent} setSelectComponent={setSelectComponent}></PreviewComponent>
-                </div>
-        })
+        
+            children = props.children.map((child, index) => {
+                return typeof child === 'string' ? child
+                    : <div className="canvas-field" key={index} id={child.props.id} style={child.props.style}>
+                        <PreviewComponent  {...child} pageInfo={pageInfo} setPageInfo={setPageInfo} selectComponent={selectComponent} setSelectComponent={setSelectComponent}></PreviewComponent>
+                    </div>
+            })
     }
+
+    
+
 
 
 
@@ -282,13 +329,32 @@ function PreviewComponent({ selectComponent, setSelectComponent, pageInfo, setPa
         newProps.readOnly = true
     }
 
+    //渲染自定义组件
+    if(isMap(props.type)){
+        let customCom = componentMap(props.type)
+        console.log('newProps.id:'+ newProps.id,'selectComponent'+ selectComponent)
+        return React.createElement(customCom,{
+            ...newProps,
+            className: selectComponent === props.props.id ? "preview-component-click" : "preview-component",
+            draggable: true,
+            onDragStart: handle_dragStart,
+            onDragOver: handle_dragOver,
+            onDrop: handle_drop
+        })
+    }
+    //
+
+
+
+
+
     // img标签不能传children参数
     // 通过切换className高亮被选中的组件
     if (children.length !== 0) {
         return React.createElement(props.type, {
             // ...props.props,
             ...newProps,
-            className: selectComponent === props.props.id ? "preview-component-click" : "preview-component",
+            className: selectComponent === props.props.id ? "preview-component-click" : "preview-component",//设置高亮
             draggable: true,
             onDragStart: handle_dragStart,
             onDragOver: handle_dragOver,

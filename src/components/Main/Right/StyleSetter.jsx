@@ -134,7 +134,7 @@ const StyleSetter = ({ pageInfo, selectComponent, setPageInfo }) => {
         setPageInfo(newPageInfo)
     }
 
-    let props = findComponentByID(pageInfo.page, selectComponent)
+    let props = findComponentByID(pageInfo.page, selectComponent)//获取每个组件的props
     let children = findChildrenByID(pageInfo.page, selectComponent)
     if (props === false) {
         throw Error(`未找到id: ${id}`)
@@ -147,7 +147,7 @@ const StyleSetter = ({ pageInfo, selectComponent, setPageInfo }) => {
             {/* props */}
             <div>
                 {
-                    Object.keys(props).map((key, index) => {
+                    Object.keys(props).map((key, index) => {//遍历props的key属性
                         if (blankProps.indexOf(key) !== -1) {
                             return null
                         } else if (key.startsWith('on')) {
@@ -173,6 +173,7 @@ const StyleSetter = ({ pageInfo, selectComponent, setPageInfo }) => {
             </div>
             {/* props.style */}
             <div>
+                
                 {
                     Object.keys(props.style).map((key, index) => {
 

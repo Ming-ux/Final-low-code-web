@@ -12,6 +12,7 @@
         "antd": "^4.22.6",
         "crypto-js": "^4.1.1",
         "mongodb": "^4.8.1",
+        "nanoid": "^4.0.2",
         "next": "12.2.3",
         "nextjs-cors": "^2.1.1",
         "normalize.css": "^8.0.1",

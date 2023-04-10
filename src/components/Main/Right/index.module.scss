@@ -22,16 +22,17 @@
     background-color: #000CF5;
   }
 
+
+
   .setterItemLabel{
-    display:inline;
+    display:block;
     margin-bottom:10px;
 
 
 
     .styleName{
       color:#4c57cb;
-      font-size: 14px;
-    
+      font-size: 16px;
     }
     .setterItem{
       border: 1.5px solid #BFC3F2;
@@ -53,7 +54,7 @@
     }
 
   }
-  .info{
+  .info{  
     // text-align: center;
     span{
         display: inline-block;
@@ -63,20 +64,106 @@
         margin-right: 10px;
         padding-top: 10px;
     }
-}
+  }
+  .json{
+    padding:0px 10px;
+    word-wrap: break-word;
+  }
 
   .event{
     // text-align: center;
     margin: 0 10px;
     .tabText{
         width: 90%;
-        height: 100px;
-        border: 1px solid skyblue;
+        height: 200px;
+        border: 1px solid rgb(135, 155, 235);
         border-radius: 10px;
         padding: 10px;
         margin: 5px auto;
     }
+
 }
+  .setEvent{
+    .styleName{
+      color:#4c57cb;
+      font-size: 16px;
+    }
+    //新增事件编辑区
+    .settedEvent{
+      position:relative;
+      right:10px;
+      width: 90%;
+      height: 200px;
+      border: 1px solid rgb(135, 155, 235);
+      border-radius: 10px;
+      padding: 10px;
+      margin: 5px auto 16px auto;
+      display: block;
+      .deleteitem{
+        display: inline;
+        &:hover{
+          .smallButton{
+            background-color: #dd7979;
+            color:#ffffff
+
+          }
+
+        }
+        .deleteButton{
+          display: inline-block;
+          text-align: left;
+          width:80%;
+          height:30px;
+          margin:4px 6px;
+          padding-left: 8px;
+          background-color: #edeef4;
+          border: 0px;
+          border-radius: 6px;
+        }
+        .smallButton{
+          width:10%;
+          border-radius:10px;
+          background-color: #edeef4;
+          border: 0px;
+          height:26px;
+          font-size: 16px;
+          &:hover{
+            background-color: #dd7979;
+            color:#ffffff
+          }
+        }
+
+      }
+
+    }
+    .select{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .styleselect{
+        display: inline-block;
+        width: 70%;
+        border: 1px solid rgb(135, 155, 235);
+        border-radius: 6px;
+        height:30px;
+        margin-right: 10px;
+      }
+      .button{
+        font-size: 20px;
+        display: inline-block;
+        width:18%;
+        height:30px;
+        border-radius: 6px;
+        border:0px;
+        color:#ffffff;
+        background-color: #000CF5;
+      }
+
+    }
+
+
+
+  }
 
   
 }

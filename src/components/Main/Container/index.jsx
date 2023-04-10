@@ -12,8 +12,9 @@ export default function Container({ selectComponent, setSelectComponent, pageInf
             <div
                 className={style.editorCenter}
                 onClick={e => {
+                    console.log('被选中的组件',e.target)
                     setSelectComponent(parseInt(e.target.id))
-                }}
+                }}//设置选择高亮的组件
             >
                 <div
                     className={style.canvasCenter}

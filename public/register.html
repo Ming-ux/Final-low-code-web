@@ -125,7 +125,8 @@
                 phone_ = register.mobile.value;
                 password_ = register.psd.value;
                 var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'https://lowcode.fly.dev/api/register');
+                // xhr.open('POST', 'https://lowcode.fly.dev/api/register');
+                xhr.open('POST', '/api/register');
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.send(
                     JSON.stringify({

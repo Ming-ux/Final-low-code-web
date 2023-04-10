@@ -183,7 +183,8 @@
                 location.reload();
             }
 
-            xhr.open("POST", 'https://lowcode.fly.dev/api/listPages?t=' + Date.now());
+            // xhr.open("POST", 'https://lowcode.fly.dev/api/listPages?t=' + Date.now());//部署地址
+            xhr.open("POST", '/api/listPages?t=' + Date.now());//本地地址
             xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(JSON.stringify(data));
@@ -297,7 +298,8 @@
                 //存入数据
                 var data = { pageName: newproject, userID: userID };
                 //发出POST请求
-                xhr.open("POST", 'https://lowcode.fly.dev/api/createPage?t=' + Date.now());
+                // xhr.open("POST", 'https://lowcode.fly.dev/api/createPage?t=' + Date.now());
+                xhr.open("POST", '/api/createPage?t=' + Date.now());
                 xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
                 xhr.setRequestHeader("Content-Type", "application/json");
                 xhr.send(JSON.stringify(data));
@@ -330,7 +332,8 @@
         //编辑项目 跳转
         function makeedit(pageID) {
             return function edit() {
-                location.href = 'https://lowcode.fly.dev/edit?userID=' + userID + '&pageID=' + pageID;
+                // location.href = 'https://lowcode.fly.dev/edit?userID=' + userID + '&pageID=' + pageID;
+                location.href = '/edit?userID=' + userID + '&pageID=' + pageID;
             }
         }
 
@@ -349,7 +352,8 @@
                     //存入数据
                     var data = { userID: userID, pageID: pageID };
                     var xhr = new XMLHttpRequest();
-                    xhr.open('POST', 'https://lowcode.fly.dev/api/deletePage?t=' + Date.now());
+                    // xhr.open('POST', 'https://lowcode.fly.dev/api/deletePage?t=' + Date.now());
+                    xhr.open('POST', '/api/deletePage?t=' + Date.now());
                     xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
                     xhr.setRequestHeader('Content-Type', 'application/json');
                     xhr.send(JSON.stringify(data));
@@ -392,7 +396,8 @@
                         //存入数据
                         var data = { userID: userID, pageID: pageID, pageName: newname };
                         var xhr = new XMLHttpRequest();
-                        xhr.open('POST', 'https://lowcode.fly.dev/api/renamePage?t=' + Date.now());
+                        // xhr.open('POST', 'https://lowcode.fly.dev/api/renamePage?t=' + Date.now());
+                        xhr.open('POST', '/api/renamePage?t=' + Date.now());
                         xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
                         xhr.setRequestHeader('Content-Type', 'application/json');
                         xhr.send(JSON.stringify(data));

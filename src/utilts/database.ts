@@ -5,7 +5,9 @@ let collections: {
 } = {}
 
 let client: MongoClient
-const uri = "mongodb://localhost:27017";
+const uri = "mongodb://127.0.0.1:27017/";//我的
+// const uri = "mongodb+srv://test_user:test123456@cluster0.um9hs.mongodb.net/?retryWrites=true&w=majority";
+
 
 async function connectToDatabase() {
     console.log(`Start connecting to database...`)

@@ -28,7 +28,11 @@ React, Next.js, MongoDB, antd
 - https://www.apifox.cn/apidoc/shared-4c8f624c-b8dc-42f9-9702-49878430f922/api-33019479
 
 
-### 修改建议
+### 待完善
 - Header.js处的index 216行，应该是点击enter后尺寸修改，而不是onchange就立刻响应
-# Low-code-web-final
-# Final-low-code-web
+- 自定义布局组件不能向其中嵌套组件，因为无法分清原有的div和自定义组件的外层div，因此给id为dropId自定义组件的push
+- 思路：自定义组件外层div的Dropid正常，但需要push到自定义的子组件，将子组件的id变为dropId的负数。将要push的item push到Id为-Dropid的组件中。
+
+## 本地开发
+- 本地开发时，将所有https://lowcode.fly.dev替换成'/'即可
+- 编辑区的url为：https://lowcode.fly.dev
